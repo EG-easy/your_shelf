@@ -39,7 +39,29 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books',
     'users',
+    'django.contrib.sites',  # loginの実装で必要
+    'allauth',
+    'allauth.account',
+    'accounts.apps.AccountsConfig',
 ]
+
+# loginの設定
+
+SITE_ID = 1
+# メール & パスワードで認証
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ユーザー名は必要ない
+ACCOUNT_USERNAME_REQUIRED = False
+# メールは必須
+ACCOUNT_EMAIL_REQUIRED = True
+# ログイン後トップページにリダイレクト
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login'
+# ログアウト後のトップページへのリダイレクト
+LOGOUT_REDIRECT_URL = '/'
+
+# デフォルトで使用するuserを決める
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,6 +103,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
 
 
 # Password validation
