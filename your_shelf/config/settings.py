@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books',
-    'users',
     'django.contrib.sites',  # loginの実装で必要
     'allauth',
     'allauth.account',

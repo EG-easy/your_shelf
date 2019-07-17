@@ -21,11 +21,11 @@
       </span>
         <span class="item">
             <div class="ui horizontal label">オーナー</div>
-            <a href="{% url 'users:user_detail' user_name=book.owner %}">{{ book.owner }}</a>
+            <a href="{% url 'accounts:detail' user_name=book.owner %}">{{ book.owner }}</a>
         </span>
         <span class="item">
             <div class="ui horizontal label">ボロワー</div>
-            <a href="{% url 'users:user_detail' user_name=book.borrower %}">{{ book.borrower|default:"-" }}</a>
+            <a href="{% url 'accounts:detail' user_name=book.borrower %}">{{ book.borrower|default:"-" }}</a>
         </span>
         <span class="item">
             <div class="ui horizontal label">著者</div>{{ book.author|default:"-" }}
