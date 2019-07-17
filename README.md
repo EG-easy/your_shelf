@@ -18,7 +18,6 @@
 - root/books/                   => 本一覧
 - root/books/create		=> 本の登録画面
 - root/books/<title>		=> 本<title>の詳細ページ
-- root/books/<title>		=> 本<title>詳細
 - root/books/<title>/update/	=> 本<title>の更新ページ
 - root/books/<title>/delete/	=> 本<title>の削除ページ
 - root/users/			=> ユーザ一覧
