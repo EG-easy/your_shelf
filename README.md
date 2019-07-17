@@ -23,3 +23,25 @@
 - root/users/			=> ユーザ一覧
 - root/users/<name>		=> ユーザ<name>詳細
 
+## Model
+
+- User
+	- name (必須, ユニーク)
+	- photo
+	- email (必須)
+	- password (必須)
+	- interest 
+
+- Book
+	- attrs (User.interestと同じ)
+	- owner (必須)
+	- borrower
+	- title (必須, primary key)
+	- isbn
+	- image
+	- author
+	- price
+	- publisher
+	- publish_date
+	- description
+
