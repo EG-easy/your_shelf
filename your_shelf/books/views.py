@@ -9,18 +9,23 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from .models import Book
 from django.contrib import messages
+# BookDetail
+from django.views.generic import DetailView
 
 def index(request):
     book_list = Book.objects.order_by('-publish_date')[:5]
     return render(request, 'books/book_list.html', {'book_list':book_list})
 
-def book_detail(request, book_title):
-    book = Book.objects.get(title=book_title)
-    return render(request, 'books/book_detail.html', {'book':book})
+# def book_detail(request, book_title):
+#     book = Book.objects.get(title=book_title)
+#     return render(request, 'books/book_detail.html', {'book':book})
+class BookDetail(DetailView):
+    model = Book
+    template_name = 'books/book_detail.html'
 
 class BookCreate(CreateView):
-    template_name = 'books/book_create.html'
     model = Book
+    template_name = 'books/book_create.html'
     success_url = reverse_lazy('books:index')
     # success_url = reverse_lazy('books:detail', kwargs={'book_title': Book.objects.get(title=book_title)})
 
@@ -34,8 +39,8 @@ class BookCreate(CreateView):
         return result
 
 class BookUpdate(UpdateView):
-    template_name = 'books/book_update.html'
     model = Book
+    template_name = 'books/book_update.html'
     # success_url = reverse_lazy('books:detail', kwargs={'book_title': Book.objects.get(title=book_title)})
     success_url = reverse_lazy('books:index')
     fields = ['owner', 'borrower', 'title', 'isbn', 'image',\
@@ -45,6 +50,6 @@ class BookUpdate(UpdateView):
     # def get(self, request, book_title):
 
 class BookDelete(DeleteView):
-    template_name = 'books/book_delete.html'
     model = Book
+    template_name = 'books/book_delete.html'
     success_url = reverse_lazy('books:index')
