@@ -16,29 +16,32 @@
         {% endif %}
     </div>
     <div class="ui divided list">
+      <span class="item">
+          <div class="ui horizontal label">カテゴリ</div>{{ book.attrs }}
+      </span>
         <span class="item">
             <div class="ui horizontal label">オーナー</div>
             <a href="{% url 'users:user_detail' user_name=book.owner %}">{{ book.owner }}</a>
         </span>
         <span class="item">
             <div class="ui horizontal label">ボロワー</div>
-            <a href="{% url 'users:user_detail' user_name=book.borrower %}">{{ book.borrower }}</a>
+            <a href="{% url 'users:user_detail' user_name=book.borrower %}">{{ book.borrower|default:"-" }}</a>
         </span>
         <span class="item">
-            <div class="ui horizontal label">著者</div>{{ book.author }}
+            <div class="ui horizontal label">著者</div>{{ book.author|default:"-" }}
         </span>
         <span class="item">
-            <div class="ui horizontal label">価格</div>{{ book.price }}円
+            <div class="ui horizontal label">価格</div>¥{{ book.price|default:"-"}}
         </span>
         <span class="item">
-            <div class="ui horizontal label">出版社</div>{{ book.publisher }}
+            <div class="ui horizontal label">出版社</div>{{ book.publisher|default:"-" }}
         </span>
         <span class="item">
-            <div class="ui horizontal label">出版日</div>{{ book.publish_date|date:"Y年m月d日" }}
+            <div class="ui horizontal label">出版日</div>{{ book.publish_date|date:"Y年m月d日"|default:"-" }}
         </span>
         <span class="item">
             <div class="ui horizontal label">要約</div>
-            <div class="description">{{ book.abstract|default:""|linebreaksbr }}</div>
+            <div class="description">{{ book.description|default:""|linebreaksbr }}</div>
         </span>
     </div>
 </div>

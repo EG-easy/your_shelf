@@ -29,7 +29,7 @@ class BookCreate(CreateView):
     success_url = reverse_lazy('books:index')
     # success_url = reverse_lazy('books:detail', kwargs={'book_title': Book.objects.get(title=book_title)})
 
-    fields = ['owner', 'borrower', 'title', 'isbn', 'image',\
+    fields = ['attrs', 'owner', 'borrower', 'title', 'isbn', 'image',\
      'author', 'price', 'publisher', 'publish_date', 'description']
 
     def form_valid(self, form):
@@ -43,7 +43,7 @@ class BookUpdate(UpdateView):
     template_name = 'books/book_update.html'
     # success_url = reverse_lazy('books:detail', kwargs={'book_title': Book.objects.get(title=book_title)})
     success_url = reverse_lazy('books:index')
-    fields = ['owner', 'borrower', 'title', 'isbn', 'image',\
+    fields = ['attrs', 'owner', 'borrower', 'title', 'isbn', 'image',\
      'author', 'price', 'publisher', 'publish_date', 'description']
     tempalte_name_suffix = '_update_form'
 
