@@ -19,11 +19,10 @@ class Book(models.Model):
     ]
 
     # フィールドを定義
-    # attrs = models.ChoiceField(verbose_name='Categories', null=True, blank=True, max_length=3, choices=ATTRS_CHOICES)
     attrs = models.CharField(verbose_name='Tag', null=True, blank=True, max_length=12, choices=ATTRS_CHOICE, default='Data Science')
     owner = models.CharField(verbose_name='Owner', max_length=255)
     borrower = models.CharField(verbose_name='Borrower', null=True, blank=True, max_length=255)
-    title = models.CharField(verbose_name='Tile', max_length=255, primary_key=True)
+    title = models.CharField(verbose_name='Title', max_length=255, primary_key=True)
     isbn = models.IntegerField(verbose_name='ISBN', null=True, blank=True)
     image = models.ImageField(verbose_name='Image', null=True, blank=True, upload_to='images/books/')
     author = models.CharField(verbose_name='Author', max_length=255, null=True, blank=True)

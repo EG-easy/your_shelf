@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 # + book_admin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import BookForm
+# from .forms import BookForm
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from .models import Book
